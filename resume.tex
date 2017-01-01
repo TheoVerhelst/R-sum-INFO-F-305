@@ -21,7 +21,7 @@ oral, et y répond à partir des définitions du syllabus.
 \emph{Note :} Toutes les définitions ne sont pas explicitées formellement, car Mr. Bontempi m'a assuré que seul
 la compréhension des concepts est évaluée, pas la restitution pure des définitions.
 \paragraph{}
-\emph{Note :} Les variables et conventions de notations utilisées sont basées sur celles du syllabus.
+\emph{Note 2 :} Les variables et conventions de notation utilisées sont basées sur celles du syllabus.
 \section{Définitions}
 \begin{description}
 	\item [Propriétés de la fonction de transition]:
@@ -171,16 +171,153 @@ rapport à la matrice des coefficients]
 			du système est instable.
 		\end{itemize}
 	\item [Notion de diagramme de bifurcation]:\\
+		Dans le cadre d'un système paramétrique continu d'ordre 1, un diagramme
+		de bifurcation est un graphique représentant la position des points fixes
+		du système (en ordonnée) en fonction du paramètre (en abscisse).
 	\item [Cycle limite]:\\
+		Un cycle limite est une trajectoire fermée et isolée. Isolée veut dire
+		que les trajectoire avoisinantes ne sont pas closes.\\
+		Un cycle limite peut être stable (ou attracteur), instable ou demi-stable.
+		Ce dernier cas représente un cycle limite dont les trajectoires intérieures
+		(exterieures) convergent, alors que les trajectoires exterieures (intérieures)
+		divergent.
 	\item [Dimensionnalité d'un ensemble fractal]:\\
-	\item [Système chatoique]:\\
+		Pour une courbe ou une surface fractale créée par un processus de
+		fragmentation avec \(N\) copies de taille \(r\), la \emph{dimension
+		fractale} \(D_0\) (ou \emph{dimension de Hausdorff}) de cette courbe est:
+		\[D_0=\frac{\log N}{\log r^{-1}}\]
+	\item [Système chaotique]:\\
+		Un comportement chaotique est un comportement apériodique à long terme
+		d'un système déterministe qui affiche une sensible dépendance aux
+		conditions initiales.\\
+		Un système chaotique est un système dont le comportement est chaotique.
 	\item [Équation caractéristique et solutions d'un système linéaire à temps
 discret]:\\
+		Soit le système
+		\[x(k+n)+\sum_{i=0}^{n-1}a_i(k)x(k+i)=g(k)\]
+		L'équation homogène associée est
+		\[x(k+n)+\sum_{i=0}^{n-1}a_i(k)x(k+i)=0\]
+		L'équation caractéristique associée à l'équation homogène est
+		\[\lambda^n+\sum_{i=0}^{n-1}\lambda^ia_i=0\]
+		Pour toute solution \(\lambda\) de multiplicité \(m\) de l'équation
+		caractéristique, on a
+		\[x^{(i)}(k)=k^i\lambda^k\quad 0\le i<m\]
+		\(m\) solutions linéarement indépendantes de l'équation homogène.\\
+		Toute solution de l'équation homogène peut s'écrire sous la forme
+		\[x^{(h)}=\sum_{i=0}^{n-1}c_ix^{(i)}(k)\]
+		où les \(x^{(i)}(k)\) sont \(n\) solutions linéairement indépendantes de
+		l'équation homogène, et les constantes \(c_i\) sont déterminées
+		arbitrairement, ou en fonction des conditions initiales. \\
+		Soit \(x^{(p)}(k)\) une solution particulière de l'équation non-homogène.
+		Toute solution générale de l'équation non-homogène est de la forme
+		\[x(k)=x^{(p)}(k)+x^{(h)}(k)\]
 	\item [Étude graphique d'une équation linéaire affine à un pas]:\\
-	\item [Relation entre linéarisation et stabilité]:\\
+		Soit le système
+		\[x(k+1)=f(x(k))\]
+		On peut représenter son évolution avec un graphique ayant comme axes
+		\(0_x'\equiv x(k)\) en abscisse, et \(0_y\equiv x(k+1)\) en ordonnée.\\
+		En traçant dans cet espace la fonction \(f\) par \(y=f(x')\), ainsi que la
+		bissectrice des axes \(y=x'\), on peut visualiser différents mouvements
+		en suivant une règle géométrique simple (la toile d'araignée):
+		\begin{enumerate}
+			\item Commencer sur l'axe \(x\) par le point \(x(k)\) et tracer une droite
+				verticale jusqu'à la fonction \(f\) (au point \((x(k),f(x(k)))\)).
+			\item Puisque \(f(x(k))=x(k+1)\), on peut tracer une droite horizontale
+				jusqu'à la bissectrice (au point \((f(x(k)),f(x(k)))\), pour ainsi
+				avoir la valeur \(x(k+1)\) en abscisse.
+			\item On peut réitérer ce procédé autant de fois que nécessaire.
+		\end{enumerate}
 	\item [Diagramme de bifurcation de la fonction logistique]:\\
-	\item [Composantes d'un algorithme Monte Carlo]:\\
-	\item [Propriétés d'un générateur de nombre pseudo-aléatoires uniformes]:\\
-	\item [Méthode de la transformation inverse]:\\
+		Ce diagramme est un bon exemple de la complexité que peut montrer un
+		système simple, en l'occurence
+		\[x(k+1)=ax(k)(1-x(k)),\quad a\in[0,4],x\in[0,1]\]
+		Le diagramme montre l'évolution des toutes les valeurs que peut prendre
+		\(x\) quand \(t\to + \infty \), en fonction du paramètre \(a\).
+		Le diagramme est relativement simple tant que \(a\lessapprox 1+\sqrt{6}\).
+		Mais une fois dépassé cette région, le nombre de valeurs de \(x\) explose
+		exponientellement. Le comportement du système devient même chaotique une
+		fois que \(a \gtrapprox 3.56994\).
+	\item [Composantes d'un algorithme Monte Carlo]:
+		\begin{description}
+			\item[Description probabiliste:] un modèle stochastique du problème.
+			\item[Générateur uniforme de nombres aléatoires:]un générateur de
+				nombres aléatoires uniformément distribués sur \([0,1]\).
+			\item[Loi d'échantillonage:]une technique pour échantilloner une
+				distribution de probabilité générique.
+			\item[Simulateur:]Un simulateur déterministe qui renvoie la sortie
+				quand tous les paramètres en entrée sont connus.
+			\item[Collecteur de sortie:]structure de donnée qui stocke toutes
+				les sorties de la simulation.
+			\item[Analyseur de sortie:]ensemble de techniques statistiques qui
+				permettent de tirer des conclusions à partir des données
+				générées par le simulateur.
+			\item[Estimateur d'erreur:]ceci permet d'associer à chaque quantité
+				estimée à partir de la sortie une indication sur l'erreur ou sur
+				la confiance (par exemple en fonction du nombre de répétitions
+				de la simulation).
+		\end{description}
+	\item [Propriétés d'un générateur de nombre pseudo-aléatoires uniformes]:
+		\begin{description}
+			\item[Distribution correcte:]Les nombres doivent être distribués
+				selon la distribution visée, sans corrélation visible dans la
+				séquence générée.
+			\item[Longue période:] La périodicité est inévitable de par de la
+				nature discrète des ordinateurs. Toutefois, cette périodicité
+				doit être plus grande que la taille de la séquence générée.
+			\item[Répétabilité:]Pour faciliter son utilisation, le générateur
+				doit pouvoir permettre de répéter son comportement, par exemple
+				au moyen d'une \emph{seed}.
+			\item[Longues séquences non corrélées:]Pour des simulations de
+				longue durée, il est important de pouvoir exécuter plusieurs
+				sous-simulations indépendamment et de pouvoir les recombiner
+				sans compromettre l'indépendance statistique.
+			\item[Portabilité:]Les nombres générés ne doivent pas dépendre de la
+				configuration de la machine, mais uniquement de la \emph{seed}.
+			\item[Efficacité:]La génération d'un nombre doit se faire de manière
+				efficace, sans demander de ressources excessives.
+		\end{description}
+	\item [Méthode de la transformation inverse]:
+		\paragraph{}
+		C'est une méthode pour générer des nombres aléatoires
+		selon une distribution arbitraire, à partir d'une distribution uniforme
+		sur \([0,1]\). Pour mettre en oeuvre cette méthode, nous avons besoin du
+		résultat suivant:
+		\paragraph{Résultat}
+		\emph{Pour toute variable aléatoire \(\mathbf x\in X\) avec une fonction
+		de répartition \(F_{\mathbf x}(x)\), la variable aléatoire
+		\(\mathbf y=F_{\mathbf x}(\mathbf x)\) est distribuée uniformément sur
+		l'intervalle \([0,1]\).}
+		\paragraph{Démonstration}
+		Considérons une variable \(\mathbf x\in X\) de densité
+		\(p_{\mathbf x}(x)\). Définissons une nouvelle variable aléatoire
+		\(\mathbf y\in Y\) telle que \(y=y(x)\) soit une fonction monotone non
+		décroissante. On a également, selon la définition de la densité de
+		probabilité,
+		\[
+			p_{\mathbf x}(x)dx=p_{\mathbf y}(y)dy \;\Leftrightarrow\;
+			p_{\mathbf y}(y) = \frac{p_{\mathbf x}(x)}{\frac{dy}{dx}}
+		\]
+		si \(y(x)\) est une fonction monotone non décroissante.\\
+		Prenons comme fonction \(y(x)\) la fonction suivante:
+		\[y=y(x)=F_{\mathbf x}(x),\quad F_{\mathbf x}:\mathbb{R}\mapsto[0,1]\]
+		où \(F_{\mathbf x}\) est la fonction de répartition de \(\mathbf x\).
+		Puisque \(F_{\mathbf x}\) est une fonction monotone non décroissante,
+		\(y(x)\) l'est aussi.
+		On a alors
+		\[
+			p_{\mathbf y}(y) = \frac{p_{\mathbf x}(x)}{\frac{dy}{dx}}=
+			\frac{p_{\mathbf x}(x)}{\frac{dF_{\mathbf x}(x)}{dx}}=
+			\frac{p_{\mathbf x}(x)}{p_{\mathbf x}(x)}=1
+		\]
+		En d'autres termes, \(\mathbf y=F_{\mathbf x}(\mathbf x)\) est toujours
+		distribuée de manière uniforme sur \([0,1]\) pour toute densité de
+		probabilité \(p_{\mathbf x}(x)\).
+		\paragraph{Méthode} Pour calculer \(N\) nombre aléatoires
+		\((x_i)_{i\in[N]}\) selon la densité de probabilité \(p_{\mathbf x}(x)\),
+		on effectue \(N\) fois les opérations suivantes:
+		\begin{enumerate}
+			\item Un nombre \(u_i\) est généré à partir d'une distribution \(\mathcal U(0,1)\)
+			\item La valeur \(x_i=F^{-1}(u_i)\) est calculée
+		\end{enumerate}
 \end{description}
 \end{document}
