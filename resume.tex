@@ -16,7 +16,7 @@
 \maketitle
 \section{Introduction}
 Ce document reprend les questions/définitions listées par Mr. Bontempi comme étant des questions potentielles à son examen
-oral, et y répond à partir des définitions du syllabus.
+oral, et y répond à partir du contenu du syllabus.
 \paragraph{}
 \emph{Note :} Toutes les définitions ne sont pas explicitées formellement, car Mr. Bontempi m'a assuré que seul
 la compréhension des concepts est évaluée, pas la restitution pure des définitions.
@@ -66,14 +66,14 @@ la compréhension des concepts est évaluée, pas la restitution pure des défin
 				soit semi-définie négative en $\bar x$, alors $\bar x$ est un état d'équilibre stable.
 			\item \emph{Critère de stabilité asymptotique de Liapounov :}
 				Si le critère de stabilité de Liapounov est satisfait et que $\dot V(\cdot)$
-				est définie positive (et non uniquement semi-définie positive) en $\bar x$,
-				alors $\bar x$ est asymptotiquement stable.
-			\item \emph{Critère d'instabilité de Liapounov :} Soit $V(\cdot)$
-				une fonction continue (dont les dérivées partielles sont également continues)
-				dans un voisinage de $\bar x$.
-				Soit $V(\bar x)=0$ et positive dans un voisinage arbitrairement petit de $\bar x$.
-				Si $V(\cdot)=\Delta V(x)f$ est définie positive en $\bar x$,
-				alors l'état d'équilibre en $\bar x$ est instable.
+				est définie négative (et non uniquement semi-définie négative) en $\bar x$,
+				alors $\bar x$ est asymptotiquement stable.\\
+				Une telle fonction \(V\) est appelée fonction de Liapounov.
+			\item \emph{Critère d'instabilité de Liapounov :} Même restrictions
+				que pour le critère de stabilité de Liapounov, si ce n'est que
+				$\dot V(\cdot)$ doit être définie positive, et non
+				(semi-)définie négative. Si c'est le cas, alors \(\bar x\) est
+				un état d'équilibre instable.
 		\end{itemize}
 	\item [Propriétés des systèmes linéaires continus]:\\
 		Définissons d'abord deux notions sur les mouvements:
