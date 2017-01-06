@@ -19,7 +19,8 @@ Simulation}
 \section{Introduction}
 Ce document reprend les questions/définitions listées par Mr. Bontempi comme
 étant des questions potentielles à son examen oral, et y répond à partir du
-contenu du syllabus.
+contenu du syllabus.\\
+Sont reprises également quelques autres notions importantes tirées du cours.
 \paragraph{}
 \emph{Note :} Toutes les définitions ne sont pas explicitées formellement, car
 Mr. Bontempi m'a assuré que seul la compréhension des concepts est évaluée, pas
@@ -129,6 +130,42 @@ son polynôme caractéristique. Posons
 où $a_{n+i} = 0 \forall i > 0$.\\
 Le critère de Hurwitz est satisfait si tous les mineurs principaux de $H$ sont
 positifs.
+\subsection{Solutions générale d'un système linéaire du second ordre}
+Soit le système
+\[\dot x=Ax\Leftrightarrow
+	\begin{cases}
+		\dot x_1 = a_{11}x_1 + a_{12}x_2\\
+		\dot x_2 = a_{21}x_1 + a_{22}x_2
+	\end{cases}
+\]
+Les valeurs propres de la matrice \(A\) sont les solutions \(\lambda_{1,2}\) de l'équation
+\[det(\lambda I-A)=0\]
+En développant, on a
+\[\lambda_{1,2} = \frac{a_{11}+a_{22} \pm \sqrt{(a_{11}+a_{22})^2 - 4(a_{11}a_{22} - a_{12}a_{21})}}{2}
+	=\frac{tr(A)\pm\sqrt{tr^2(A) - 4det(A)}}{2}
+\]
+Les vecteurs propres \(v_{1,2}\) associés aux valeurs propres \(\lambda_{1,2}\) sont définis par
+\[\begin{cases}
+	\lambda_1 v_1=Av_1\\
+	\lambda_2 v_2=Av_2
+\end{cases}\]
+En développant, on peut trouver, \(\forall\, i\in\{1, 2\}\)
+\[v_i=\begin{bmatrix}
+	\frac{a_{12}}{\lambda_i - a_{11}}\\
+	1
+\end{bmatrix}
+\]
+La solution générale du système est une combinaison linéaire de fonctions
+exponentielles caractérisée par ces valeurs et vecteurs propres, ainsi que par
+deux constantes \(c_{1,2}\) déterminées par les conditions initiales:
+\[x(t)=c_1 v_1 e^{\lambda_1 t} + c_2 v_2 e^{\lambda_2 t}\]
+\[\Leftrightarrow
+\begin{cases}
+	\dot x_1 = c_1 \left( \frac{a_12}{\lambda_1-a_{11}}\right) e^{\lambda_1 t} +
+	           c_2 \left( \frac{a_12}{\lambda_1-a_{11}}\right) e^{\lambda_1 t} \\
+	\dot x_2 = c_1 e^{\lambda_1 t} + c_2 e^{\lambda_2 t}
+\end{cases}
+\]
 \subsection{Principe de superposition des effets dans le cas d'un système
 linéaire du second ordre}
 \emph{\bf{Attention!}} Je ne suis pas sûre que ce théorème corresponde à cette
