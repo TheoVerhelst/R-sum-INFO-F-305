@@ -194,10 +194,29 @@ Soit le système
 	x_2
 \end{bmatrix}
 \]
-On a
+Soient \(\lambda_1, \lambda_2\in\mathbb{C}\) les valeurs propres de la matrice \(A\).\\
+On peut alors dire que
+\begin{itemize}
+	\item Le système est asymptotiquement stable si et seulement si
+		\[\Re(\lambda_i) < 0\quad\forall\, i\in\{1, 2\}\]
+	\item Le système est simplement stable si et seulement si
+		\begin{align*}
+			&\Re(\lambda_i) \le 0 \\
+			\land\,&
+			((\Re(\lambda_i) = 0) \Rightarrow \lambda_i \text{ est de multiplicité } 1)
+			\quad\forall\, i\in\{1, 2\}
+		\end{align*}
+	\item Le système est instable dans tous les autres cas, c'est à dire si et seulement si
+		\begin{align*}
+			&\exists i\in\{1, 2\} \text{ t.q. } \Re(\lambda_i) > 0 \\
+			\lor\,&
+			\exists i\in\{1, 2\} \text{ t.q. } \lambda_i \text{ est de multiplicité} > 1
+		\end{align*}
+\end{itemize}
+De plus, soient
 \[tr(A)=a_{11} + a_{22}\]
 \[det(A)=a_{11}a_{22} - a_{12}a_{21}\]
-On peut classer les systèmes en fonction de leur trace et de leur
+On peut également classer les systèmes en fonction de leur trace et de leur
 déterminant:\\
 \\
 \includegraphics{graphic.png}\\
