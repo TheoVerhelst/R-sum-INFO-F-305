@@ -169,14 +169,20 @@ deux constantes \(c_{1,2}\) déterminées par les conditions initiales:
 \]
 \subsection{Principe de superposition des effets dans le cas d'un système
 linéaire du second ordre}
-\emph{\bf{Attention!}} Je ne suis pas sûre que ce théorème corresponde à cette
-définition! \\
+\emph{Note:} je ne sais pas très bien ce qu'il veut qu'on dise à propos de ce
+point, étant donné qu'un système linéaire satisfait, par définition, les
+critères du principe de superposition des effets.
+\paragraph{}
 Soit le système
-\[\dot x=Ax\]
-et \(x^{(1)}(t)\in\mathbb{R}\) \(x^{(2)}(t)\in\mathbb{R}\)
-deux solutions linéairement indépendantes de ce système.
-\[\exists\,c_1,c_2\in\mathbb{C}\text{ t.q. }x(t)=c_1x^{(1)}(t)+c_2x^{(2)}(t)\]
-\(c_1\) et \(c_2\) sont déterminés en fonction des condition initiales.
+\[
+	\begin{cases}
+		\dot x(t)&= A(t)x(t) + B(t)u(t)\\
+		y(t)&=C(t)x(t)
+	\end{cases}
+\]
+où \(A,\,B,\,C\) sont des matrices \(2\times 2\) de fonctions continues en
+\(T\). Alors, par le théorème 5.2 du syllabus, ce système est linéaire, et donc
+satisfait les critères du principe de superposition des effets.
 \subsection{Classifier la stabilité des systèmes de seconde ordre par rapport à
 la matrice des coefficients}
 Soit le système
