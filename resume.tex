@@ -343,6 +343,16 @@ Mais une fois dépassé cette région, le nombre de valeurs de \(x\) explose
 exponientellement. Le comportement du système devient même chaotique une
 fois que \(a \gtrapprox 3.56994\).
 
+\subsection{Invariant}
+Un invariant d'un système autonome d'ordre n est une région de l'espace de
+phases d'où une trajectoire ne peut pas sortir si elle y a démarré. Plus
+formellement, c'est un sous-ensemble \(I\subset X\) de dimension \(d < n\) tel
+que \[x(t_0)\in I\Rightarrow (x(t)\in I\,\forall t \ge t_0)\]
+\emph{Note:} On ne considère pas le cas où \(d=n\) car ce serait le cas
+trivial où l'invariant pourrait être l'espace des phases, ça n'a pas d'intérêt.
+\emph{Note 2:} Si \(n \ge 3\), un invariant peut être fractal, c'est à dire
+avoir une dimension non-entière.
+
 \subsection{Composantes d'un algorithme Monte Carlo}
 \begin{description}
 	\item[Description probabiliste:] un modèle stochastique du problème.
