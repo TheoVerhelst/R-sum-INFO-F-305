@@ -49,6 +49,11 @@ sur celles du syllabus.
 Un état $x_2$ est \emph{accessible} à l'instant $t_2$ à partir d'un état $x_1$
 si $\exists\;t_1, u(\cdot)$ tels que \[\varphi(t_2,t_1,x_1,u(\cdot))=x_2\]
 \subsection{Observabilité}
+Un état est dit \emph{observable} à l'instant $t_0$ s'il est possible de déterminer
+un intervalle de temps $[t_1,t_2)$ et une fonction d'entrée $u(\cdot)$ qui puisse 
+permettre la reconstruction de manière univoque de l'état $x(t_0)$ à partir de
+$u_{[t_0,t)}(\cdot)$ et $y_{[t_0,t)}(\cdot)$.
+
 \subsection{Notions de stabilité}
 Un système est dit  \emph{stable} si une petite perturbation de son état initial
 n'induit pas une grande perturbation de son comportement au cours du temps.\\
