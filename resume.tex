@@ -392,6 +392,22 @@ de \(t\) dans cette exponentielle est l'exposant de Liapounov.
 On peut en déduire que le système est chaotique si et seulement si \(\lambda\)
 est positif.
 
+\subsection{Horizon de prédictibilité}
+Cette notion est applicable dans le contexte d'un système chaotique. Supposons
+que l'on veut prédire l'évolution d'un système dynamique chaotique, avec une
+erreur ne pouvant dépasser \(a\). Posons \(\delta(t_0)\) l'erreur de mesure à
+l'instant initial, et \(\delta(t)\) la différence entre l'état prédit et l'état
+qui sera observé en réalité à l'instant \(t\).\\
+L'horizon de prédictibilité est l'instant \(t_h\) à partir duquel l'erreur ne
+devient plus acceptable, c'est-à-dire \[||\delta(t)||>a\;\forall t>t_h\]
+On peut montrer que
+\[t_h=t_0+\frac{1}{\lambda}\ln\frac{a}{||\delta(t_0)||}\]
+Dû à la nature exponentielle de l'erreur dans un système chaotique, réduire
+l'erreur de mesure \(||\delta(t_0)||\) par plusieurs ordres de grandeur ne
+permet d'allonger l'horizon de prédictibilité que de manière anecdotique: par
+exemple, si \(a=10^{-3}\) et \(t_0=0\), passer de \(||\delta(t_0)||=10^{-7}\)
+à \(||\delta(t_0)||=10^{-13}\) multiplie à peine par deux \(t_h\).
+
 \subsection{Composantes d'un algorithme Monte Carlo}
 \begin{description}
 	\item[Description probabiliste:] un modèle stochastique du problème.
