@@ -65,22 +65,23 @@ Soit $\bar x$ un état d'équilibre pour la fonction d'entrée constante $\bar u
 \begin{itemize}
 	\item \emph{Critère de stabilité de Liapounov :} S'il existe une fonction
 		$V(\cdot)$ continue (et que ses dérivées partielles sont également
-		continues), qui soit définie positive en $\bar x$ et telle que la
-		fonction
+		continues), qui soit définie positive en $\bar x$ et telle que sa
+		dérivée par rapport au temps soit semi-définie négative en $\bar x$,
+		alors $\bar x$ est un état d'équilibre stable.
+		Avec
 		\[
 			\dot V(x)=\frac{dV(x)}{dt}
-			=\sum_{i=1}^{n}\frac{\partial V}{\partial x_i}\dot x_i(t)
-			=\Delta V(x)f(x,\bar u)\]
-		où
+			=\langle\Delta V(x),\,f(x,\bar u)\rangle
+			=\sum_{i=1}^{n}\frac{\partial V}{\partial x_i}\dot x_i(t)\]
+		où le gradient de \(V\) est
 		\[\Delta V(x)=\big[\frac{\partial V}{\partial x_1},\dots
 		\frac{\partial V}{\partial x_n}\big]\]
-		soit semi-définie négative en $\bar x$, alors $\bar x$ est un état
-		d'équilibre stable.
+		et où \(\langle\cdot,\,\cdot\rangle\) désigne le produit scalaire.
 	\item \emph{Critère de stabilité asymptotique de Liapounov :}
 		Si le critère de stabilité de Liapounov est satisfait et que
 		$\dot V(\cdot)$ est définie négative (et non uniquement semi-définie
 		négative) en $\bar x$, alors $\bar x$ est asymptotiquement stable.\\
-		Une telle fonction \(V\) est appelée fonction de Liapounov.
+		Dans ce cas, une telle fonction \(V\) est appelée fonction de Liapounov.
 	\item \emph{Critère d'instabilité de Liapounov :} Même restrictions
 		que pour le critère de stabilité de Liapounov, si ce n'est que
 		$\dot V(\cdot)$ doit être définie positive, et non
@@ -127,7 +128,7 @@ son polynôme caractéristique. Posons
 	\vdots & \vdots & \vdots & \vdots & \\
 \end{bmatrix}
 \]
-où $a_{n+i} = 0 \forall i > 0$.\\
+où $a_{n+i} = 0\quad\forall i > 0$.\\
 Le critère de Hurwitz est satisfait si tous les mineurs principaux de $H$ sont
 positifs.
 \subsection{Solutions générale d'un système linéaire du second ordre}
