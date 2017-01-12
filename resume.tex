@@ -8,6 +8,7 @@
 \usepackage{amssymb}
 \usepackage{textcomp}
 \usepackage{graphicx}
+\usepackage{bm}
 
 \author{Théo Verhelst}
 \title{Matière non-exhaustive pour l'examen du cours de Modélisation et
@@ -408,6 +409,40 @@ permet d'allonger l'horizon de prédictibilité que de manière anecdotique: par
 exemple, si \(a=10^{-3}\) et \(t_0=0\), passer de \(||\delta(t_0)||=10^{-7}\)
 à \(||\delta(t_0)||=10^{-13}\) multiplie à peine par deux \(t_h\).
 
+\subsection{Problèmes à la bases des méthodes de Monte Carlo}
+Soit un système dont l'entrée \(\bm x\in\mathbb R^n\) (et donc la sortie
+\(\bm y=s(\bm x)\)) suit une loi probabiliste dont la densité de
+probabilité est \(p_{\bm x}(x)\). Les méthodes de Monte Carlo essaient de
+résoudre les deux problèmes suivants:
+\begin{description}
+	\item[Echantillonage] comment générer une suite vecteurs d'entrée
+		\((x_i)_{i\in[N]}\) qui soient indépendants et qui sont répartis selon
+		la densité de probabilité \(p_{\bm x}(x)\) (avec \(N\) le nombre
+		d'itérations, ou le nombre de simulations, de la méthode de Monte
+		Carlo).
+	\item[Estimation] comment estimer les propriétés statistiques de
+		\(\bm y\).
+\end{description}
+
+\subsection{Propriété importante des problèmes de Monte Carlo}
+Typiquement, la propriété statistique que l'on recherche à estimer par une
+simulation de Monte Carlo est l'espérance de la sortie \(\bm y\):
+\[\theta=\textrm E[\bm y]=\int s(x)p(x)dx\]
+On peut approximer cette valeur par la moyenne arithmétique des sorties des
+\(N\) itérations:
+\[\hat\theta=\frac{1}{N}\sum_{i=1}{N}s(x_i)\]
+Il est possible de montrer que cette estimation de l'espérance de \(\bm y\)
+(qu'on appelera \emph{estimateur}) est non polarisée (\emph{unbiased}), c'est à
+dire que son espérance est l'espérance de \(\bm y\):
+\[\textrm E[\bm{\hat\theta}]=\theta\]
+Et que sa variance (ou sa précision) est
+\[\textrm{Var}[\bm{\hat\theta}]=\frac{\textrm{Var}[\bm y]^2}{N}\]
+\textbf{Propriété importante des problèmes de Monte Carlo:} la précision de
+l'estimateur (c-à-d \(\textrm{Var}[\bm{\hat\theta}]\)) ne dépends pas de la
+dimensionnalité \(n\) du système. \(\mathbf x\) peut avoir un très grand
+nombre de dimensions, quelques dizaines d'itérations peuvent suffire à estimer
+\(\theta\) de manière satisfaisante.
+
 \subsection{Composantes d'un algorithme Monte Carlo}
 \begin{description}
 	\item[Description probabiliste:] un modèle stochastique du problème.
@@ -456,41 +491,44 @@ selon une distribution arbitraire, à partir d'une distribution uniforme
 sur \([0,1]\). Pour mettre en oeuvre cette méthode, nous avons besoin du
 résultat suivant:
 \paragraph{Résultat}
-\emph{Pour toute variable aléatoire \(\mathbf x\in X\) avec une fonction
-de répartition \(F_{\mathbf x}(x)\), la variable aléatoire
-\(\mathbf y=F_{\mathbf x}(\mathbf x)\) est distribuée uniformément sur
+\emph{Pour toute variable aléatoire \(\bm x\in X\) avec une fonction
+de répartition \(F_{\bm x}(x)\), la variable aléatoire
+\(\bm y=F_{\bm x}(\bm x)\) est distribuée uniformément sur
 l'intervalle \([0,1]\).}
 \paragraph{Démonstration}
-Considérons une variable \(\mathbf x\in X\) de densité
-\(p_{\mathbf x}(x)\). Définissons une nouvelle variable aléatoire
-\(\mathbf y\in Y\) telle que \(y=y(x)\) soit une fonction monotone non
+Considérons une variable \(\bm x\in X\) de densité
+\(p_{\bm x}(x)\). Définissons une nouvelle variable aléatoire
+\(\bm y\in Y\) telle que \(y=y(x)\) soit une fonction monotone non
 décroissante. On a également, selon la définition de la densité de
 probabilité,
 \[
-	p_{\mathbf x}(x)dx=p_{\mathbf y}(y)dy \;\Leftrightarrow\;
-	p_{\mathbf y}(y) = \frac{p_{\mathbf x}(x)}{\frac{dy}{dx}}
+	p_{\bm x}(x)dx=p_{\bm y}(y)dy \;\Leftrightarrow\;
+	p_{\bm y}(y) = \frac{p_{\bm x}(x)}{\frac{dy}{dx}}
 \]
 si \(y(x)\) est une fonction monotone non décroissante.\\
 Prenons comme fonction \(y(x)\) la fonction suivante:
-\[y=y(x)=F_{\mathbf x}(x),\quad F_{\mathbf x}:\mathbb{R}\mapsto[0,1]\]
-où \(F_{\mathbf x}\) est la fonction de répartition de \(\mathbf x\).
-Puisque \(F_{\mathbf x}\) est une fonction monotone non décroissante,
+\[y=y(x)=F_{\bm x}(x),\quad F_{\bm x}:\mathbb{R}\mapsto[0,1]\]
+où \(F_{\bm x}\) est la fonction de répartition de \(\bm x\).
+Puisque \(F_{\bm x}\) est une fonction monotone non décroissante,
 \(y(x)\) l'est aussi.
 On a alors
 \[
-	p_{\mathbf y}(y) = \frac{p_{\mathbf x}(x)}{\frac{dy}{dx}}=
-	\frac{p_{\mathbf x}(x)}{\frac{dF_{\mathbf x}(x)}{dx}}=
-	\frac{p_{\mathbf x}(x)}{p_{\mathbf x}(x)}=1
+	p_{\bm y}(y) = \frac{p_{\bm x}(x)}{\frac{dy}{dx}}=
+	\frac{p_{\bm x}(x)}{\frac{dF_{\bm x}(x)}{dx}}=
+	\frac{p_{\bm x}(x)}{p_{\bm x}(x)}=1
 \]
-En d'autres termes, \(\mathbf y=F_{\mathbf x}(\mathbf x)\) est toujours
+En d'autres termes, \(\bm y=F_{\bm x}(\bm x)\) est toujours
 distribuée de manière uniforme sur \([0,1]\) pour toute densité de
-probabilité \(p_{\mathbf x}(x)\).
+probabilité \(p_{\bm x}(x)\).
 \paragraph{Méthode} Pour calculer \(N\) nombre aléatoires
-\((x_i)_{i\in[N]}\) selon la densité de probabilité \(p_{\mathbf x}(x)\),
+\((x_i)_{i\in[N]}\) selon la densité de probabilité \(p_{\bm x}(x)\),
 on effectue \(N\) fois les opérations suivantes:
 \begin{enumerate}
 	\item Un nombre \(u_i\) est généré à partir d'une distribution
 		\(\mathcal U(0,1)\)
-	\item La valeur \(x_i=F^{-1}(u_i)\) est calculée
+	\item La valeur \(x_i=F^{-1}_{\bm x}(u_i)\) est calculée
 \end{enumerate}
+Pour cette méthode, on a donc besoin de trouver, analytiquement ou
+numériquement, \(F^{-1}_{\bm x}\). Si sa forme analytique n'existe pas,
+des méthodes numériques (ex: interpolation) peuvent être utilisées.
 \end{document}
