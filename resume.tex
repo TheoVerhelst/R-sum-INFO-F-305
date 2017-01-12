@@ -291,8 +291,14 @@ fractale} \(D_0\) (ou \emph{dimension de Hausdorff}) de cette courbe est:
 \subsection{Système chaotique}
 Un comportement chaotique est un comportement apériodique à long terme
 d'un système déterministe qui affiche une sensible dépendance aux
-conditions initiales.\\
-Un système chaotique est un système dont le comportement est chaotique.
+conditions initiales. De plus, l'état du système évolue dans une région bornée
+de l'espace des phases (appellée \emph{attracteur}), et ne converge pas vers un
+point fixe, un cycle limite ou une orbite (quasi-)périodique.\\
+\emph{Note:} Un système dont l'état tends vers l'infini n'est pas considéré
+chaotique, bien que les trajectoire peuvent diverger de manière exponentielle,
+car on considère que l'infini est alors un point fixe.
+\paragraph{}
+Un système chaotique est un système dont le comportement est chaotique.\\
 
 \subsection{Équation caractéristique et solutions d'un système linéaire à temps
 discret}
@@ -365,6 +371,26 @@ suivantes:
 	\item \(A\) est minimal: il n'existe pas de sous-ensemble de \(A\) qui soit
 		un invariant attracteur
 \end{itemize}
+
+\subsection{Exposant de Liapounov}
+L'exposant de Liapounov est une mesure quantitative du degré de chaoticité d'un
+système chaotique.
+\paragraph{}
+Soit un système chaotique dont l'attracteur est \(A\subset X\).\\
+Soit \(x(t_0)\in A\) et \(\bar x(t_0)=x(t_0)+\delta(t_0)\) un point proche de
+\(x(t_0)\).\\
+Suivons l'évolution de deux trajectoires passant par \(x(t_0)\) et
+\(\bar x(t_0)\), et définissons \(\delta(t)\) l'écart entre ces deux trajectoires
+à l'instant \(t\).\\
+Si on peut approximer \(\delta(t)\) comme suit:
+\[||\delta(t)||\approx||\delta(t_0)||e^{\lambda(t-t_0)}\]
+alors \(\lambda\) est l'exposant de Liapounov du système chaotique.\\
+Cela veut dire que si les deux trajectoires, bien que restant dans l'attracteur,
+divergent l'une de l'autre de manière exponentielle, alors le coefficient
+de \(t\) dans cette exponentielle est l'exposant de Liapounov.
+\paragraph{}
+On peut en déduire que le système est chaotique si et seulement si \(\lambda\)
+est positif.
 
 \subsection{Composantes d'un algorithme Monte Carlo}
 \begin{description}
