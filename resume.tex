@@ -349,9 +349,22 @@ phases d'où une trajectoire ne peut pas sortir si elle y a démarré. Plus
 formellement, c'est un sous-ensemble \(I\subset X\) de dimension \(d < n\) tel
 que \[x(t_0)\in I\Rightarrow (x(t)\in I\,\forall t \ge t_0)\]
 \emph{Note:} On ne considère pas le cas où \(d=n\) car ce serait le cas
-trivial où l'invariant pourrait être l'espace des phases, ça n'a pas d'intérêt.
+trivial où l'invariant pourrait être l'espace des phases, ça n'a pas
+d'intérêt.\\
 \emph{Note 2:} Si \(n \ge 3\), un invariant peut être fractal, c'est à dire
 avoir une dimension non-entière.
+
+\subsection{Invariant attracteur}
+Un attracteur est un ensemble clos \(A \subset X\) qui satisfait les propriétés
+suivantes:
+\begin{itemize}
+	\item \(A\) est un invariant (voir au dessus)
+	\item \(A\) exerce une action attractive sur un ensemble \(U \subset X\)
+		autour de \(A\), appelé \emph{bassin d'attraction}:
+		\[x(t_0)\in U\Rightarrow \lim_{t\to\infty}x(t)\in A\]
+	\item \(A\) est minimal: il n'existe pas de sous-ensemble de \(A\) qui soit
+		un invariant attracteur
+\end{itemize}
 
 \subsection{Composantes d'un algorithme Monte Carlo}
 \begin{description}
