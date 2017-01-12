@@ -29,6 +29,7 @@ la restitution pure des définitions.
 \emph{Note 2 :} Les variables et conventions de notation utilisées sont basées
 sur celles du syllabus.
 \section{Définitions}
+
 \subsection{Propriétés de la fonction de transition}
 \begin{itemize}
 	\item \emph{Consistance :} Si l'état du système au temps $t$ est $x$,
@@ -45,14 +46,17 @@ sur celles du syllabus.
 		intervalles, elles auront le même effet dans cette intervalle sur un
 		système donné pour un état initial donné.
 \end{itemize}
+
 \subsection{Accessibilité}
 Un état $x_2$ est \emph{accessible} à l'instant $t_2$ à partir d'un état $x_1$
 si $\exists\;t_1, u(\cdot)$ tels que \[\varphi(t_2,t_1,x_1,u(\cdot))=x_2\]
+
 \subsection{Observabilité}
 Un état est dit \emph{observable} à l'instant $t_0$ s'il est possible de déterminer
-un intervalle de temps $[t_1,t_2)$ et une fonction d'entrée $u(\cdot)$ qui puisse 
+un intervalle de temps $[t_1,t_2)$ et une fonction d'entrée $u(\cdot)$ qui puisse
 permettre la reconstruction de manière univoque de l'état $x(t_0)$ à partir de
 $u_{[t_0,t)}(\cdot)$ et $y_{[t_0,t)}(\cdot)$.
+
 
 \subsection{Notions de stabilité}
 Un système est dit  \emph{stable} si une petite perturbation de son état initial
@@ -61,6 +65,7 @@ Plus formellement, un mouvement avec une condition initiale $\bar x$ est
 stable si pour tout voisinage $V_\epsilon$ de ce mouvement, on peut trouver
 une condition initale proche de $\bar x$ telle que le mouvement partant de
 cette condition initiale perturbée reste dans le voisinage $V_\epsilon$.
+
 \subsection{Critère de stabilité de Liapounov}
 Soit un système à temps continu
 \[\dot x(t)=f(x(t),u(t))\]
@@ -93,6 +98,7 @@ Soit $\bar x$ un état d'équilibre pour la fonction d'entrée constante $\bar u
 		(semi-)définie négative. Si c'est le cas, alors \(\bar x\) est
 		un état d'équilibre instable.
 \end{itemize}
+
 \subsection{Propriétés des systèmes linéaires continus}
 Définissons d'abord deux notions sur les mouvements:
 \begin{itemize}
@@ -115,6 +121,7 @@ Un système linéaire jouit des propriétés suivantes:
 		deux mouvemements forcés correspondant à $u_1(\cdot)$ et $u_2(\cdot)$.
 	\item La transformation de sortie $\eta$ est une fonction linéaire.
 \end{itemize}
+
 \subsection{Relation entre stabilité et le critère de Hurwitz}
 Satisfaire le critère de Hurwitz est équivalent à prouver que le système
 est asymptotiquement stable.\\
@@ -136,6 +143,7 @@ son polynôme caractéristique. Posons
 où $a_{n+i} = 0\quad\forall i > 0$.\\
 Le critère de Hurwitz est satisfait si tous les mineurs principaux de $H$ sont
 positifs.
+
 \subsection{Solutions générale d'un système linéaire du second ordre}
 Soit le système
 \[\dot x=Ax\Leftrightarrow
@@ -172,6 +180,7 @@ deux constantes \(c_{1,2}\) déterminées par les conditions initiales:
 	\dot x_2 = c_1 e^{\lambda_1 t} + c_2 e^{\lambda_2 t}
 \end{cases}
 \]
+
 \subsection{Principe de superposition des effets dans le cas d'un système
 linéaire du second ordre}
 \emph{Note:} je ne sais pas très bien ce qu'il veut qu'on dise à propos de ce
@@ -188,6 +197,7 @@ Soit le système
 où \(A,\,B,\,C\) sont des matrices \(2\times 2\) de fonctions continues en
 \(T\). Alors, par le théorème 5.2 du syllabus, ce système est linéaire, et donc
 satisfait les critères du principe de superposition des effets.
+
 \subsection{Classifier la stabilité des systèmes de seconde ordre par rapport à
 la matrice des coefficients}
 Soit le système
@@ -240,6 +250,7 @@ déterminant:\\
 \end{description}
 La parabole des noeuds singuliers ou dégénérés est d'équation
 \[det(A)=\frac{(tr(A))^2}{4}\]
+
 \subsection{Relation entre linéarisation et stabilité}
 Soit le système
 \[\dot x=f(x,u)\]
@@ -257,10 +268,12 @@ avec un point d'équilibre \(\bar x\) et sa linéarisation en \(\bar x,\bar u\)
 	propres avec partie réelle positive, alors l'état d'équilibre \(\bar x\)
 	du système est instable.
 \end{itemize}
+
 \subsection{Notion de diagramme de bifurcation}
 Dans le cadre d'un système paramétrique continu d'ordre 1, un diagramme
 de bifurcation est un graphique représentant la position des points fixes
 du système (en ordonnée) en fonction du paramètre (en abscisse).
+
 \subsection{Cycle limite}
 Un cycle limite est une trajectoire fermée et isolée. Isolée veut dire
 que les trajectoire avoisinantes ne sont pas closes.\\
@@ -268,16 +281,19 @@ Un cycle limite peut être stable (ou attracteur), instable ou demi-stable.
 Ce dernier cas représente un cycle limite dont les trajectoires intérieures
 (exterieures) convergent, alors que les trajectoires exterieures (intérieures)
 divergent.
+
 \subsection{Dimensionnalité d'un ensemble fractal}
 Pour une courbe ou une surface fractale créée par un processus de
 fragmentation avec \(N\) copies de taille \(r\), la \emph{dimension
 fractale} \(D_0\) (ou \emph{dimension de Hausdorff}) de cette courbe est:
 \[D_0=\frac{\log N}{\log r^{-1}}\]
+
 \subsection{Système chaotique}
 Un comportement chaotique est un comportement apériodique à long terme
 d'un système déterministe qui affiche une sensible dépendance aux
 conditions initiales.\\
 Un système chaotique est un système dont le comportement est chaotique.
+
 \subsection{Équation caractéristique et solutions d'un système linéaire à temps
 discret}
 Soit le système
@@ -298,6 +314,7 @@ arbitrairement, ou en fonction des conditions initiales. \\
 Soit \(x^{(p)}(k)\) une solution particulière de l'équation non-homogène.
 Toute solution générale de l'équation non-homogène est de la forme
 \[x(k)=x^{(p)}(k)+x^{(h)}(k)\]
+
 \subsection{Étude graphique d'une équation linéaire affine à un pas}
 Soit le système
 \[x(k+1)=f(x(k))\]
@@ -314,6 +331,7 @@ en suivant une règle géométrique simple (la toile d'araignée):
 		avoir la valeur \(x(k+1)\) en abscisse.
 	\item On peut réitérer ce procédé autant de fois que nécessaire.
 \end{enumerate}
+
 \subsection{Diagramme de bifurcation de la fonction logistique}
 Ce diagramme est un bon exemple de la complexité que peut montrer un
 système simple, en l'occurence
@@ -324,6 +342,7 @@ Le diagramme est relativement simple tant que \(a\lessapprox 1+\sqrt{6}\).
 Mais une fois dépassé cette région, le nombre de valeurs de \(x\) explose
 exponientellement. Le comportement du système devient même chaotique une
 fois que \(a \gtrapprox 3.56994\).
+
 \subsection{Composantes d'un algorithme Monte Carlo}
 \begin{description}
 	\item[Description probabiliste:] un modèle stochastique du problème.
@@ -343,6 +362,7 @@ fois que \(a \gtrapprox 3.56994\).
 		la confiance (par exemple en fonction du nombre de répétitions
 		de la simulation).
 \end{description}
+
 \subsection{Propriétés d'un générateur de nombre pseudo-aléatoires uniformes}
 \begin{description}
 	\item[Distribution correcte:]Les nombres doivent être distribués
@@ -363,6 +383,7 @@ fois que \(a \gtrapprox 3.56994\).
 	\item[Efficacité:]La génération d'un nombre doit se faire de manière
 		efficace, sans demander de ressources excessives.
 \end{description}
+
 \subsection{Méthode de la transformation inverse}
 \paragraph{}
 C'est une méthode pour générer des nombres aléatoires
